@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Vini - NOMAD</title>
+    <style>
+        /* Reset generale */
+        body, h1, h2, p, button {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Impostazioni globali */
+        body {
+            background-color: #000;
+            color: white;
+            line-height: 1.6;
+            text-align: center;
+            overflow-x: hidden; /* Evita scorrimento orizzontale */
+        }
+
+        /* Header */
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .back-button {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: 2px solid white;
+            color: white;
+            padding: 3px 10px;
+            font-size: 16px; /* Evita zoom su iPhone */
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-button:hover {
+            background: white;
+            color: black;
+        }
+
+        header img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Categoria vini */
+        .menu-container {
+            margin: 20px;
+        }
+
+        .category-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            position: sticky;
+            top: 0;
+            background: black;
+            padding: 10px 0;
+            z-index: 1000;
+            flex-wrap: nowrap;
+        }
+
+        .category-buttons button {
+            background: none;
+            border: 2px solid white;
+            color: white;
+            padding: 8px 15px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            flex: 0 0 auto;
+            max-width: 150px;
+        }
+
+        .category-buttons button:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Lista vini con toggle */
+        .wine-list {
+            display: none; /* Inizialmente nascosta */
+        }
+
+        .wine-list.active {
+            display: block; /* Mostrata quando attiva */
+        }
+
+        .wine-container {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            background: #1c1c1c;
+            border-radius: 8px;
+            padding: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+            -webkit-box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5); /* Compatibilità Safari */
+        }
+
+        .wine-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            padding: 10px;
+        }
+
+        .wine-name {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: left;
+        }
+
+        .wine-price {
+            font-size: 14px;
+            color: #ccc;
+            text-align: left;
+        }
+
+        .toggle-icon {
+            font-size: 20px;
+            color: white;
+            transition: transform 0.3s ease;
+            margin-left: auto; /* Sposta il toggle a destra */
+        }
+
+        .wine-header.active .toggle-icon {
+            transform: rotate(90deg);
+        }
+
+        .wine-details {
+            display: none;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        /* Responsività */
+        @media (max-width: 768px) {
+            .category-buttons {
+                display: flex;
+                flex-direction: row; /* Layout orizzontale */
+                justify-content: center;
+                gap: 5px; /* Ridotto lo spazio */
+                overflow-x: auto; /* Scorrimento orizzontale per schermi piccoli */
+            }
+
+            .category-buttons button {
+                flex: 1; /* Uniforma dimensioni */
+                max-width: 120px; /* Limita larghezza massima */
+            }
+
+            .wine-header {
+                flex-direction: row; /* Mantiene layout in fila */
+                justify-content: space-between; /* Allinea bene gli elementi */
+                align-items: center;
+            }
+
+            .toggle-icon {
+                font-size: 18px; /* Dimensione ridotta per mobile */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            body {
+                font-size: 14px; /* Adatta il testo per iPhone */
+            }
+
+            .wine-header {
+                flex-direction: row; /* Allinea correttamente su schermi stretti */
+            }
+        }
+    </style>
+    <script>
+        function showCategory(category) {
+            const allCategories = document.querySelectorAll('.wine-list');
+            allCategories.forEach(item => item.classList.remove('active'));
+            document.getElementById(category).classList.add('active');
+        }
+
+        function toggleDetails(id, headerElement) {
+            const details = document.getElementById(id);
+            const isVisible = details.style.display === 'block';
+
+            details.style.display = isVisible ? 'none' : 'block';
+            headerElement.classList.toggle('active', !isVisible);
+        }
+    </script>
+</head>
+<body>
+<header>
+    <a href="#" class="back-button">
+        TORNA AL MENU
+    </a>
+    <img src="https://res.cloudinary.com/dwalnukl0/image/upload/v1739310447/NOMAD_LOGO_2_1_sqz7np.jpg" alt="NOMAD Bar">
+</header>
+<section class="menu-container">
+    <div class="category-buttons">
+        <button onclick="showCategory('rossi')">Rossi</button>
+        <button onclick="showCategory('bianchi')">Bianchi</button>
+        <button onclick="showCategory('bollicine')">Bollicine</button>
+    </div>
+    <!-- Vini Rossi -->
+    <div id="rossi" class="wine-list">
+        <div class="wine-container">
+            <div class="wine-header" onclick="toggleDetails('details1', this)">
+                <div>
+                    <span class="wine-name">Campo al Mare Bolgheri Rosso DOC 2022</span>
+                    <br>
+                    <span class="wine-price">Calice 7€ | Bottiglia 35€</span>
+                </div>
+                <span class="toggle-icon">&#9776;</span>
+            </div>
+            <div id="details1" class="wine-details">
+                <p><strong>PRODUTTORE:</strong> Ambrogio e Giovanni Folonari</p>
+                <p><strong>ZONA DI PRODUZIONE:</strong> Tenuta di Campo al Mare - Greve in Chianti (FI) - TOSCANA</p>
+                <p><strong>VITIGNO:</strong> Merlot, Cabernet Sauvignon, Cabernet Franc, Petit Verdot</p>
+                <p><strong>GRADO ALCOLICO:</strong> 14,5%</p>
+                <p><strong>COLORE:</strong> Rosso porpora</p>
+                <p><strong>PROFUMO:</strong> Aromi di frutti rossi e spezie delineati da una vibrante vena balsamica</p>
+                <p><strong>SAPORE:</strong> Corposo, vellutato ed avvolgente con un finale persistente</p>
+            </div>
+        </div>
+
+        <div class="wine-container">
+            <div class="wine-header" onclick="toggleDetails('details2', this)">
+                <div>
+                    <span class="wine-name">Argamakow Langhe DOC Pinot Nero 2019</span>
+                    <br>
+                    <span class="wine-price">Calice 7€ | Bottiglia 30€</span>
+                </div>
+                <span class="toggle-icon">&#9776;</span>
+            </div>
+            <div id="details2" class="wine-details">
+                <p><strong>PRODUTTORE:</strong> Podere Ruggeri Corsini</p>
+                <p><strong>ZONA DI PRODUZIONE:</strong> Langhe - Monforte D'Alba (CN) - PIEMONTE</p>
+                <p><strong>VITIGNO:</strong> Pinot Nero</p>
+                <p><strong>GRADO ALCOLICO:</strong> 13,47%</p>
+                <p><strong>COLORE:</strong> Rosso rubino</p>
+                <p><strong>PROFUMO:</strong> Bouquet di frutti di bosco (ribese, mora e lampone)</p>
+                <p><strong>SAPORE:</strong> Morbido, fragrante, piacevolmente tannico</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Vini Bianchi -->
+    <div id="bianchi" class="wine-list">
+        <div class="wine-container">
+            <div class="wine-header" onclick="toggleDetails('details3', this)">
+                <div>
+                    <span class="wine-name">Arenis Gewürztraminer Alto Adige DOC 2023</span>
+                    <br>
+                    <span class="wine-price">Calice 6€ | Bottiglia 25€</span>
+                </div>
+                <span class="toggle-icon">&#9776;</span>
+            </div>
+            <div id="details3" class="wine-details">
+                <p><strong>PRODUTTORE:</strong> Kurtatsch</p>
+                <p><strong>ZONA DI PRODUZIONE:</strong> Cortaccia (BO) - TRENTINO                <p><strong>COLORE:</strong> Giallo dorato brillante</p>
+                <p><strong>PROFUMO:</strong> Bouquet complesso con note di rose, litchi, gelsomino e spezie esotiche</p>
+                <p><strong>SAPORE:</strong> Corposo e fresco, con una spiccata mineralità che dona al vino una freschezza persistente; equilibrato tra intensità ed eleganza</p>
+            </div>
+        </div>
+
+        <div class="wine-container">
+            <div class="wine-header" onclick="toggleDetails('details4', this)">
+                <div>
+                    <span class="wine-name">Pinot Grigio Südtirol Alto Adige DOC 2023</span>
+                    <br>
+                    <span class="wine-price">Calice 6€ | Bottiglia 25€</span>
+                </div>
+                <span class="toggle-icon">&#9776;</span>
+            </div>
+            <div id="details4" class="wine-details">
+                <p><strong>PRODUTTORE:</strong> Kurtatsch</p>
+                <p><strong>ZONA DI PRODUZIONE:</strong> Cortaccia (BO) - TRENTINO ALTO ADIGE</p>
+                <p><strong>VITIGNO:</strong> Pinot grigio</p>
+                <p><strong>GRADO ALCOLICO:</strong> 13%</p>
+                <p><strong>COLORE:</strong> Giallo paglierino brillante</p>
+                <p><strong>PROFUMO:</strong> Note di pesca bianca, fiori freschi e agrumi</p>
+                <p><strong>SAPORE:</strong> Succoso e pieno, con una tessitura cremosa bilanciata da una fresca acidità; finale espressivo con una nota minerale salata</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bollicine -->
+    <div id="bollicine" class="wine-list">
+        <div class="wine-container">
+            <div class="wine-header" onclick="toggleDetails('details5', this)">
+                <div>
+                    <span class="wine-name">Valdobbiadene Prosecco Superiore DOCG Extra Dry Rebuli</span>
+                    <br>
+                    <span class="wine-price">Calice 6€ | Bottiglia 25€</span>
+                </div>
+                <span class="toggle-icon">&#9776;</span>
+            </div>
+            <div id="details5" class="wine-details">
+                <p><strong>PRODUTTORE:</strong> Azienda Agricola Rebuli Angelo & Figli - Soc. Agricola</p>
+                <p><strong>ZONA DI PRODUZIONE:</strong> Valdobbiadene, nel cuore della denominazione Valdobbiadene Prosecco Superiore DOCG</p>
+                <p><strong>TERRENO:</strong> Calcareo e argilloso</p>
+                <p><strong>VITIGNO:</strong> Glera 100%</p>
+                <p><strong>METODO DI PRODUZIONE:</strong> Vendemmia manuale, selezione accurata delle uve; Pressatura soffice, fermentazione a temperatura controllata; Metodo Charmat con fermentazione in autoclave</p>
+                <p><strong>AROMI:</strong> Profumo intenso e fine, con note di pera Kaiser, mela Golden, albicocca e sentori floreali di fior d’arancio e dragoncello</p>
+                <p><strong>GUSTO:</strong> Morbido, intenso e avvolgente, con ottimo equilibrio e persistenza, finale minerale</p>
+                <p><strong>GRADI ZUCCHERINI:</strong> 16 g/l (Extra Dry)</p>
+                <p><strong>TIPOLOGIA:</strong> Spumante Extra Dry</p>
+                <p><strong>GRADAZIONE ALCOLICA:</strong> 11,0% vol.</p>
+            </div>
+        </div>
+
+        <div class="wine-container">
+            <div class="wine-header" onclick="toggleDetails('details6', this)">
+                <div>
+                    <span class="wine-name">Valdobbiadene Prosecco Superiore DOCG Extra Brut Rebuli</span>
+                    <br>
+                    <span class="wine-price">Calice 6€ | Bottiglia 25€</span>
+                </div>
+                <span class="toggle-icon">&#9776;</span>
+            </div>
+            <div id="details6" class="wine-details">
+                <p><strong>PRODUTTORE:</strong> Azienda Agricola Rebuli Angelo & Figli - Soc. Agricola</p>
+                <p><strong>ZONA DI PRODUZIONE:</strong> Valdobbiadene, nel cuore della denominazione Valdobbiadene Prosecco Superiore DOCG</p>
+                <p><strong>TERRENO:</strong> Calcareo, subalcalino</p>
+                <p><strong>VITIGNO:</strong> Glera 100%</p>
+                <p><strong>METODO DI PRODUZIONE:</strong> Vendemmia manuale, cernita delle uve; Pressatura soffice, fermentazione a temperatura controllata (18°C); Affinamento sui lieviti in serbatoi inox per 3 mesi; Metodo Martinotti-Charmat con sosta sui lieviti per almeno 70 giorni</p>
+                <p><strong>AROMI:</strong> Profumo molto intenso e fine, con note di mela Golden, pera Kaiser, fiore di mandorlo, dragoncello e sentori minerali</p>
+                <p><strong>GUSTO:</strong> Secco, intenso e persistente, con corrispondenza al profumo e spiccato sapore di mela</p>
+                <p><strong>GRADI ZUCCHERINI:</strong> 7 g/l (Extra Brut)</p>
+                <p><strong>TIPOLOGIA:</strong> Spumante Extra Brut</p>
+                <p><strong>GRADAZIONE ALCOLICA:</strong> 11,5% vol.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
