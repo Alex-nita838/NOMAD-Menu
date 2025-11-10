@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOMAD – Birre</title>
+
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap');
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    header h1 {
+      font-family: 'Oswald', sans-serif;
+      color: #fff;
+      letter-spacing: 2px;
+      font-size: 1.8rem;
+    }
+
+    .content {
+      padding: 20px;
+      max-width: 700px;
+      width: 100%;
+      animation: fadeIn 0.4s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #ccc;
+      table-layout: fixed;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #222;
+      vertical-align: middle;
+    }
+
+    th {
+      font-family: 'Oswald', sans-serif;
+      color: #c01818;
+      text-transform: uppercase;
+      font-weight: 500;
+      background-color: #111;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+
+    td {
+      text-align: left;
+    }
+
+    td.price {
+      text-align: right;
+      font-weight: 600;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    tr:hover {
+      background-color: #111;
+    }
+
+    .details {
+      font-size: 0.85rem;
+      color: #aaa;
+      line-height: 1.3;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🍺 NOMAD – BIRRE</h1>
+  </header>
+
+  <div class="content">
+    <h2 class="section-title">SELEZIONE BIRRE IN BOTTIGLIA</h2>
+
+    <table>
+      <tr><th>Birra</th><th>Prezzo</th></tr>
+
+      <tr>
+        <td>
+          <strong>THERESIANER – PILS • 5.0°</strong><br>
+          <span class="details">Stile: Pilsner | Fermentazione: Bassa<br>Punto d’amaro: 33 IBU | Provenienza: Trieste (ITA)<br>33cl</span>
+        </td>
+        <td class="price">5,00 €</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>THERESIANER – VIENNA • 5.3°</strong><br>
+          <span class="details">Stile: Vienna | Fermentazione: Bassa<br>Punto d’amaro: 20 IBU | Provenienza: Trieste (ITA)<br>33cl</span>
+        </td>
+        <td class="price">5,00 €</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>FIRESTONE WALKER – HOPNOSIS • 6.7°</strong><br>
+          <span class="details">Stile: American IPA | Fermentazione: Alta<br>Punto d’amaro: 45 IBU | Provenienza: California (USA)<br>35,5cl</span>
+        </td>
+        <td class="price">7,00 €</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>BUDWEISER – LAGER • 5.0°</strong><br>
+          <span class="details">Stile: Lager | Fermentazione: Bassa<br>Punto d’amaro: 12 IBU | Provenienza: USA<br>33cl</span>
+        </td>
+        <td class="price">5,00 €</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>DAMM – INEDIT • 4.8°</strong><br>
+          <span class="details">Stile: Blanche | Fermentazione: Alta<br>Punto d’amaro: 21 IBU | Provenienza: Spagna<br>33cl</span>
+        </td>
+        <td class="price">5,00 €</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>KLOSTER SCHEYERN – WEISSE HELL • 5.2°</strong><br>
+          <span class="details">Stile: Hefeweiss | Fermentazione: Alta<br>Punto d’amaro: 12 IBU | Provenienza: Baviera (D)<br>50cl</span>
+        </td>
+        <td class="price">7,00 €</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>FIRESTONE WALKER – UNION JACK • 7.5°</strong><br>
+          <span class="details">Stile: American IPA | Fermentazione: Alta<br>Punto d’amaro: 70 IBU | Provenienza: California (USA)<br>35,5cl</span>
+        </td>
+        <td class="price">7,00 €</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>CORONA EXTRA • 4.6°</strong><br>
+          <span class="details">Stile: Lager | Fermentazione: Bassa<br>Punto d’amaro: 19 IBU | Provenienza: Messico<br>33cl</span>
+        </td>
+        <td class="price">5,00 €</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>TENNENT'S SUPER • 9.0°</strong><br>
+          <span class="details">Stile: Lager | Fermentazione: Bassa<br>Punto d’amaro: 25 IBU | Provenienza: Scozia<br>33cl</span>
+        </td>
+        <td class="price">5,00 €</td>
+      </tr>
+
+      <tr>
+        <td>
+          <strong>ICHNUSA • 4.7°</strong><br>
+          <span class="details">Stile: Lager | Fermentazione: Bassa<br>Punto d’amaro: 20 IBU | Provenienza: Sardegna (ITA)<br>33cl</span>
+        </td>
+        <td class="price">5,00 €</td>
+      </tr>
+
+    </table>
+  </div>
+</body>
+</html>

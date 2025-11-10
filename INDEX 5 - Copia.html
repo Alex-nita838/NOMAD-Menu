@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Menu NOMAD</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: black;
+      color: white;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding-bottom: 20px;
+      /* Rimossa immagine di background */
+    }
+    .header {
+      text-align: center;
+      font-size: 28px;
+      font-weight: bold;
+      padding: 10px 0;
+      background-color: #222;
+      width: 100%;
+    }
+    .cocktail-section, .distillati-section, .birre-vini-section, .food-section {
+      width: 90%;
+      margin-top: 20px;
+    }
+    .cocktail-container {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 10px;
+    }
+    .card {
+      width: 100%;
+      max-width: 100%;
+      flex: 1 1 100%;
+      aspect-ratio: 4 / 5;
+      background-color: #444;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      font-weight: bold;
+      scroll-snap-align: center;
+      background-size: cover;
+      background-position: top center; /* Mostra la parte alta della foto */
+      background-color: #444; /* Colore di fallback */
+      position: relative;
+    }
+    .card a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .distillati-container {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .distillati-card {
+      width: 100%;
+      aspect-ratio: 2 / 1;
+      background-color: #555;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      background-size: cover;
+      background-position: center;
+      background-color: #555; /* Colore di fallback */
+      position: relative;
+    }
+    .distillati-card a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .birre-vini-container {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+    .birre-card, .vini-card {
+      flex: 1;
+      aspect-ratio: 2 / 2;
+      background-color: #666;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      background-size: cover;
+      background-position: center;
+      background-color: #666; /* Colore di fallback */
+      position: relative;
+    }
+    .birre-card a, .vini-card a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .food-section {
+      width: 90%;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+    .food-card {
+      width: 100%;
+      aspect-ratio: 3 / 2;
+      background-color: #777;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      font-weight: bold;
+      background-size: cover;
+      background-position: center;
+      background-color: #777; /* Colore di fallback */
+      position: relative;
+    }
+    .food-card a {
+      display: block;
+      width: 100%;
+      height: 100%;
+      text-decoration: none;
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Spazio per foto orizzontale in alto -->
+  <div style="width:100vw; height:auto; background:#222; display:flex; align-items:center; justify-content:center; margin-bottom:10px; padding:0;">
+    <img src="https://res.cloudinary.com/dwalnukl0/image/upload/v1747947048/NOMAD_LOGO_2_1_yokhs8.jpg" alt="NOMAD" style="width:100vw; height:auto; display:block; object-fit:cover; max-width:100vw; border-radius:0;">
+  </div>
+  
+  <div class="cocktail-section">
+    <div class="cocktail-container" style="justify-content: center;">
+      <div class="card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1747947048/Odyssey_hxwjpf.jpg'); aspect-ratio: 5/6; font-size: 26px;">
+        <a href="https://storage.doitsquare.com/files/972/4f730e08-25df-4de6-bc95-1069fea26235/odyssey-menu-1744908011.pdf"></a>
+        <!-- Signature -->
+      </div>
+    </div>
+  </div>
+  
+  <div class="distillati-section">
+    <div class="distillati-container">
+      <div class="distillati-card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1747947051/whiskey_asescc.jpg');">
+        <a href="https://www.tuosito.com/whisky"></a>
+        Whisky
+      </div>
+      <div class="distillati-card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1747947049/rum_uqcjhj.jpg');">
+        <a href="https://www.tuosito.com/rum"></a>
+        Rum
+      </div>
+      <div class="distillati-card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1739386802/NOMAD%20MENU/pdqtgslprhz7bamaj7zk.jpg');">
+        <a href="https://www.tuosito.com/gin"></a>
+        Gin
+      </div>
+
+      <div class="distillati-card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1747947051/vodka_kwjehe.jpg');">
+        <a href="https://www.tuosito.com/vodka"></a>
+        Vodka
+      </div>
+      <div class="distillati-card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1739456838/AGAVE_BLU_zvatkp.jpg');">
+        <a href="https://www.tuosito.com/tequila"></a>
+        Tequila
+      </div>
+      <div class="distillati-card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1747947044/brandy_stuso4.jpg');">
+        <a href="https://www.tuosito.com/cognac"></a>
+        Cognac
+      </div>
+    </div>
+  </div>
+
+  <!-- Card Amari separata e più lunga -->
+  <div style="width:90%; margin-top:20px; display:flex; justify-content:center;">
+    <div class="distillati-card" style="width: 100%; aspect-ratio: 4 / 1; background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1747947045/amari_hwpzg2.jpg'); font-size:18px;">
+      <a href="https://www.tuosito.com/amari"></a>
+      Amari
+    </div>
+  </div>
+  
+  <div class="birre-vini-section">
+    <div class="birre-vini-container">
+      <div class="birre-card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1747947046/immagine_birre_polxfy.jpg');">
+        <a href="https://www.tuosito.com/birre"></a>
+        Birre
+      </div>
+      <div class="vini-card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1739887271/vino_menu_saygut.jpg');">
+        <!-- <a href="https://res.cloudinary.com/dwalnukl0/raw/upload/v1739887813/menu_vini_definitivo_ykueva."></a> -->
+        Vini
+      </div>
+    </div>
+  </div>
+  
+  <div class="food-section">
+    <div class="food-card" style="background-image: url('https://res.cloudinary.com/dwalnukl0/image/upload/v1747947046/immagine_food_zb868o.jpg');">
+      <a href="https://www.tuosito.com/food"></a>
+      Food
+    </div>
+  </div>
+</body>
+</html>

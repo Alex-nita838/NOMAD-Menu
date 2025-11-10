@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NOMAD – Amari & Digestivi</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Montserrat:wght@300;400;500&display=swap');
+
+    body {
+      background-color: #000;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    header {
+      text-align: center;
+      padding: 25px 10px;
+    }
+
+    header h1 {
+      font-family: 'Oswald', sans-serif;
+      color: #fff;
+      letter-spacing: 2px;
+      font-size: 1.8rem;
+    }
+
+    .tabs {
+      display: flex;
+      justify-content: center;
+      border-bottom: 2px solid #222;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 700px;
+    }
+
+    .tab {
+      padding: 12px 20px;
+      margin: 4px;
+      border: none;
+      background: none;
+      color: #fff;
+      font-family: 'Oswald', sans-serif;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: all 0.3s ease;
+      flex: 1;
+      text-align: center;
+    }
+
+    .tab.active {
+      border-bottom: 2px solid #c01818;
+      color: #c01818;
+    }
+
+    .tab:hover {
+      color: #c01818;
+    }
+
+    .content {
+      display: none;
+      padding: 20px;
+      max-width: 700px;
+      width: 100%;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .content.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .section-title {
+      font-family: 'Oswald', sans-serif;
+      color: #fff;
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      border-bottom: 1px solid #333;
+      padding-bottom: 5px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #ccc;
+      table-layout: fixed;
+    }
+
+    th, td {
+      padding: 12px 10px;
+      border-bottom: 1px solid #222;
+      text-align: center;
+      vertical-align: middle;
+    }
+
+    th {
+      font-family: 'Oswald', sans-serif;
+      color: #c01818;
+      text-transform: uppercase;
+      font-weight: 500;
+      background-color: #111;
+      letter-spacing: 1px;
+    }
+
+    td:first-child {
+      text-align: left;
+      width: 60%;
+      color: #fff;
+    }
+
+    td.price {
+      width: 20%;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    tr:hover {
+      background-color: #111;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🥃 NOMAD – AMARI & DIGESTIVI</h1>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" onclick="openTab('classici')">CLASSICI ITALIANI</button>
+    <button class="tab" onclick="openTab('cremosi')">CREMOSI & AROMATICI</button>
+    <button class="tab" onclick="openTab('erboristici')">ERBORISTICI & INTERNAZIONALI</button>
+  </div>
+
+  <!-- CLASSICI ITALIANI -->
+  <div id="classici" class="content active">
+    <h2 class="section-title">CLASSICI ITALIANI</h2>
+    <table>
+      <tr><th>Nome</th><th>25 ml</th><th>50 ml</th></tr>
+      <tr><td>Abracadabra</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Amara</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Amaro del Capo</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Averna</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Braulio</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Camatti</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Cynar</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Montenegro</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Prione</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+    </table>
+  </div>
+
+  <!-- CREMOSI & AROMATICI -->
+  <div id="cremosi" class="content">
+    <h2 class="section-title">CREMOSI & AROMATICI</h2>
+    <table>
+      <tr><th>Nome</th><th>25 ml</th><th>50 ml</th></tr>
+      <tr><td>Baileys</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Disaronno</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Disaronno Velvet</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Zabov</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Crema di Pistacchio</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Anima Nera</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Limoncino</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Liquore dell’Etna – Pera</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Liquore dell’Etna – Finocchio</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+    </table>
+  </div>
+
+  <!-- ERBORISTICI & INTERNAZIONALI -->
+  <div id="erboristici" class="content">
+    <h2 class="section-title">ERBORISTICI & INTERNAZIONALI</h2>
+    <table>
+      <tr><th>Nome</th><th>25 ml</th><th>50 ml</th></tr>
+      <tr><td>Branca Menta</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Fernet Branca</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Jefferson</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Valhalla</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Ypocras</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Jägermeister</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Mr Black</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+      <tr><td>Sambuca</td><td class="price">3 €</td><td class="price">5 €</td></tr>
+    </table>
+  </div>
+
+  <script>
+    function openTab(tabName) {
+      const tabs = document.querySelectorAll('.tab');
+      const contents = document.querySelectorAll('.content');
+      tabs.forEach(t => t.classList.remove('active'));
+      contents.forEach(c => c.classList.remove('active'));
+      document.querySelector(`.tab[onclick="openTab('${tabName}')"]`).classList.add('active');
+      document.getElementById(tabName).classList.add('active');
+    }
+  </script>
+</body>
+</html>
